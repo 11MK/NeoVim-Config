@@ -1,0 +1,31 @@
+────────────────────────────────────────────────────
+ _   _                 ____  ___
+| \ | |               (_)  \/  |
+|  \| | ___  _____   ___| .  . |
+| . ` |/ _ \/ _ \ \ / / | |\/| |
+| |\  |  __/ (_) \ V /| | |  | |
+\_| \_/\___|\___/ \_/ |_\_|  |_/
+
+────────────────────────────────────────────────────
+
+PLUGINS: 
+- packer                        [plugin installer and manager]
+- mason                         [LSP servers, DAP servers, linters, and Formatter installer and manager]
+- telescope                     [a highly extendable fuzzy finder over lists.]
+- vim-surround                  [add, delete and change surroundings for a piece of text.]
+- indent-blankline              [Adds indent guides in the current file.]
+- bufferline                    [A snazzy buffer line (with tabpage integration)]
+- lualine                       [Make the statusline pretty and adds extra information.]
+- gitsigns                      [how "signs" in any line that has been changed somehow.]
+- nvim-tree                     [File manager plugin.]
+- nvim-dap                      [debug adapter protocol]
+- nvim-dap-ui                   [ui overhaul for nvim-dap]
+- nvim-web-devicons             [Collection of functions to display icons.]
+- nvim-treesitter               [provide some basic functionality such as highlighting]
+- nvim-treesitter-textobjects   [adds more text objects based on treesitter queries.]
+- nvim-colorizer                [adds highlighting to color codes.]
+- nvim-lspconfig                [Configs for the nvim lsp client]
+- leap                          [Quick and efficient navigation]
+- alpha-nvim                    [home page]
+- luasnip                       [snippets driver]
+- friendly-snippets             [more community snippets]
