@@ -18,7 +18,6 @@ end
 
 local function on_attach(bufnr)
 
-
   -- Default mappings. Feel free to modify or remove as you wish.
   --
   -- BEGIN_DEFAULT_ON_ATTACH

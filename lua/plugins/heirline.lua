@@ -19,6 +19,7 @@ local function setup_colors()
         green = utils.get_highlight("String").fg,
         blue = utils.get_highlight("Function").fg,
         orange = utils.get_highlight("Float").fg,
+        yellow = utils.get_highlight("WarningMsg").fg,
         purple = utils.get_highlight("Statement").fg,
         cyan = utils.get_highlight("Special").fg,
         diag_warn = utils.get_highlight("DiagnosticWarn").fg,
@@ -237,9 +238,8 @@ local Git = {
 
     {   -- git branch name
         provider = function(self)
-            return " " .. self.status_dict.head
+            return "  " .. self.status_dict.head
         end,
-        hl = { bold = true }
     },
     -- You could handle delimiters, icons and counts similar to Diagnostics
     {
@@ -251,23 +251,26 @@ local Git = {
     {
         provider = function(self)
             local count = self.status_dict.added or 0
-            return count > 0 and ("" .. count)
+            return count > 0 and (" " .. count)
         end,
-        hl = { fg = "git_add" },
+        -- hl = { fg = "git_add" },
+        hl = { fg = "gray" },
     },
     {
         provider = function(self)
             local count = self.status_dict.removed or 0
-            return count > 0 and ("" .. count)
+            return count > 0 and ("  " .. count)
         end,
-        hl = { fg = "git_del" },
+        -- hl = { fg = "git_del" },
+        hl = { fg = "gray" },
     },
     {
         provider = function(self)
             local count = self.status_dict.changed or 0
-            return count > 0 and ("▣" .. count)
+            return count > 0 and ("  " .. count)
         end,
-        hl = { fg = "git_change" },
+        -- hl = { fg = "git_change" },
+        hl = { fg = "gray" },
     },
     {
         condition = function(self)
@@ -323,7 +326,24 @@ local Diagnostics = {
         hl = { fg = "diag_hint" },
     },
 }
+local LSPActive = {
+    condition = conditions.lsp_attached,
+    update = {'LspAttach', 'LspDetach'},
 
+    -- You can keep it simple,
+    provider = "⚙ LSP",
+
+    -- Or complicate things a bit and get the servers names
+    -- provider  = function()
+    --     local names = {}
+    --     for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+    --         table.insert(names, server.name)
+    --     end
+    --     return " " .. table.concat(names, " ")
+    --     -- 
+    -- end,
+    hl = { fg = "yellow", bold = true },
+}
 
 -- We're getting minimalists here!
 local Ruler = {
@@ -337,7 +357,7 @@ local Ruler = {
 -- ViMode = utils.surround({ "", "" }, "bright_bg", { ViMode })
 local DefaultStatusline = {
     ViMode, RightTri, FileNameBlock, RightEdge, Git, Space, Align,
-    Diagnostics, Space, Ruler
+    Diagnostics, Space, LSPActive, Space, Ruler
 }
 
 -- local DefaultStatusline = {
