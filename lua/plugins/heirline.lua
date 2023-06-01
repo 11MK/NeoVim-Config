@@ -10,7 +10,7 @@ local function setup_colors()
     return {
         bright_bg = utils.get_highlight("Folded").bg,
         bright_fg = utils.get_highlight("Folded").fg,
-        red = utils.get_highlight("DiagnosticError").fg,
+        red = utils.get_highlight("ErrorMsg").fg,
         background = utils.get_highlight("Visual").bg,
         white = utils.get_highlight("@text").fg,
         light_grey = utils.get_highlight("CursorLineNr").bg,
@@ -134,14 +134,14 @@ local ViMode = {
       provider = " ",
       hl = function(self)
           local mode = self.mode:sub(1, 1) -- get only the first mode character
-          return { fg = self.mode_colors[mode], bold = true, bg = "dark_grey" }
+          return { fg = self.mode_colors[mode], bg = "dark_grey" }
       end,
     },
     {
       provider = "🭌",
       hl = function(self)
           local mode = self.mode:sub(1, 1) -- get only the first mode character
-          return { bg = self.mode_colors[mode], fg = "dark_grey" }
+          return {  bold = true, bg = self.mode_colors[mode],  fg = "dark_grey" }
       end,
     },
     {
@@ -150,7 +150,7 @@ local ViMode = {
       end,
       hl = function(self)
           local mode = self.mode:sub(1, 1) -- get only the first mode character
-          return { bg = self.mode_colors[mode], fg = "dark_grey", bold = true, }
+          return {  bold = true, bg = self.mode_colors[mode], fg = "dark_grey", }
       end,
     },
     {
