@@ -13,7 +13,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 local api = require('nvim-tree.api')
 
 local function opts(desc)
-  return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  return { desc = 'nvim-tree: ' .. desc, noremap = true, silent = true, nowait = true }
 end
 
 local function on_attach(bufnr)
@@ -94,6 +94,7 @@ nvim_tree.setup {
   },
   renderer = {
     root_folder_modifier = ":t",
+    root_folder_label = false,
     icons = {
       glyphs = {
         default = "",
@@ -121,8 +122,8 @@ nvim_tree.setup {
     },
   },
   diagnostics = {
-    enable = true,
-    show_on_dirs = true,
+    enable = false,
+    show_on_dirs = false,
     icons = {
       hint = "",
       info = "",
@@ -133,5 +134,6 @@ nvim_tree.setup {
   view = {
     width = 30,
     side = "left",
+    cursorline = false,
   },
 }

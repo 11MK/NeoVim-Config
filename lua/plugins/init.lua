@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use { "nvim-tree/nvim-tree.lua" } -- nvim file explorer
   use { "nvim-treesitter/nvim-treesitter" } -- syntax highlighting
   use { "nvim-telescope/telescope.nvim", tag = '0.1.1' } -- folder searcher
+  use { "github/copilot.vim" }
   -- COMPLETIONS -- 
   use { "hrsh7th/nvim-cmp" } -- The completion plugin
   use { "hrsh7th/cmp-buffer" } -- buffer completions

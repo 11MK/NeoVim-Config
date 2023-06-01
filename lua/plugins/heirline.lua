@@ -13,8 +13,9 @@ local function setup_colors()
         red = utils.get_highlight("DiagnosticError").fg,
         background = utils.get_highlight("Visual").bg,
         white = utils.get_highlight("@text").fg,
-        grey = utils.get_highlight("Comment").bg,
-        dark_grey = utils.get_highlight("Comment").bg,
+        light_grey = utils.get_highlight("CursorLineNr").bg,
+        grey = utils.get_highlight("TabLineFill").fg,
+        dark_grey = utils.get_highlight("StatusLineNC").bg,
         dark_red = utils.get_highlight("DiffDelete").bg,
         green = utils.get_highlight("String").fg,
         blue = utils.get_highlight("Function").fg,
@@ -45,12 +46,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 local RightEdge = {
    provider = '🭝',
-   hl = { fg = "bright_bg",  bg="background" },
+   hl = { fg = "dark_grey",  bg="background" },
 }
 
 local RightTri = {
-   provider = '',
-   hl = { fg = "grey",  bg="bright_bg" },
+   provider = '🭢',
+   hl = { bg = "grey",  fg="dark_grey" },
 }
 
 local LeftCap = {
@@ -130,23 +131,36 @@ local ViMode = {
     -- control the padding and make sure our string is always at least 2
     -- characters long. Plus a nice Icon.
     {
-      provider = function(self)
-          return " %("..self.mode_names[self.mode].." %)"
-      end,
-
+      provider = " ",
       hl = function(self)
           local mode = self.mode:sub(1, 1) -- get only the first mode character
-          return { bg = self.mode_colors[mode], bold = true, fg = "bright_bg" }
+          return { fg = self.mode_colors[mode], bold = true, bg = "dark_grey" }
+      end,
+    },
+    {
+      provider = "🭌",
+      hl = function(self)
+          local mode = self.mode:sub(1, 1) -- get only the first mode character
+          return { bg = self.mode_colors[mode], fg = "dark_grey" }
+      end,
+    },
+    {
+      provider = function(self)
+          return " "..self.mode_names[self.mode]
+      end,
+      hl = function(self)
+          local mode = self.mode:sub(1, 1) -- get only the first mode character
+          return { bg = self.mode_colors[mode], fg = "dark_grey", bold = true, }
       end,
     },
     {
       provider = function()
-          return "%(%)"
+          return "%(🭌%)"
       end,
 
       hl = function(self)
           local mode = self.mode:sub(1, 1) -- get only the first mode character
-          return { bg = self.mode_colors[mode], bold = true, fg = "grey" }
+          return { fg = self.mode_colors[mode], bg = "dark_grey" }
       end,
     },
     -- Same goes for the highlight. Now the foreground will change according to the current mode.
@@ -178,7 +192,7 @@ local ParentDirectory = {
     provider = function(self)
         return "  " .. self.parentDirectory .. " "
     end,
-    hl = { fg = "grey", bg="bright_bg" },
+    hl = { fg = "gray", bg="dark_grey" },
 }
 
 local FileIcon = {
@@ -194,7 +208,7 @@ local FileIcon = {
         return self.icon and (self.icon .. " ")
     end,
     hl = function(self)
-        return { fg = self.icon_color, bg="bright_bg" }
+        return { fg = self.icon_color, bg="dark_grey" }
     end
 }
 
@@ -214,7 +228,7 @@ local FileName = {
         end
         return filename
     end,
-    hl = { fg = "white", bg="bright_bg" },
+    hl = { fg = "white", bg="dark_grey" },
 }
 
 
@@ -253,24 +267,24 @@ local Git = {
             local count = self.status_dict.added or 0
             return count > 0 and (" " .. count)
         end,
-        -- hl = { fg = "git_add" },
-        hl = { fg = "gray" },
+        hl = { fg = "git_add" },
+        -- hl = { fg = "gray" },
     },
     {
         provider = function(self)
             local count = self.status_dict.removed or 0
             return count > 0 and ("  " .. count)
         end,
-        -- hl = { fg = "git_del" },
-        hl = { fg = "gray" },
+        hl = { fg = "git_del" },
+        -- hl = { fg = "gray" },
     },
     {
         provider = function(self)
             local count = self.status_dict.changed or 0
             return count > 0 and ("  " .. count)
         end,
-        -- hl = { fg = "git_change" },
-        hl = { fg = "gray" },
+        hl = { fg = "git_change" },
+        -- hl = { fg = "gray" },
     },
     {
         condition = function(self)
@@ -351,12 +365,27 @@ local Ruler = {
     -- %L = number of lines in the buffer
     -- %c = column number
     -- %P = percentage through file of displayed window
-    provider = "%7(%l/%3L%):%2c %P",
+    {
+      provider = "🭁",
+      hl = { fg = "purple", bg = "dark_grey" },
+    },
+    {
+      provider = " ",
+      hl = { fg = "dark_grey", bg = "purple" },
+    },
+    {
+      provider = "🭗",
+      hl = { fg = "purple", bg = "dark_grey" },
+    },
+    {
+      provider = "%P ",
+      hl = { fg = "purple", bold = true, bg = "dark_grey" },
+    },
 }
 
 -- ViMode = utils.surround({ "", "" }, "bright_bg", { ViMode })
 local DefaultStatusline = {
-    ViMode, RightTri, FileNameBlock, RightEdge, Git, Space, Align,
+    ViMode, FileNameBlock, RightEdge, Git, Space, Align,
     Diagnostics, Space, LSPActive, Space, Ruler
 }
 
