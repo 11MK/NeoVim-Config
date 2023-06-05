@@ -81,6 +81,7 @@ return packer.startup(function(use)
       require("todo-comments").setup({})
     end
   }
+  -- BUG: fix this shit!
   use({ "kylechui/nvim-surround", -- edit surrounding characters
     tag = "*",
     config = function()
