@@ -7,6 +7,11 @@ local servers = {
 	-- "bashls",
 	-- "jsonls",
 	-- "yamlls",
+	"cssls",
+	"html",
+	"pyright",
+	"rust_analyzer",
+	"tailwindcss",
 }
 
 local settings = {

@@ -75,6 +75,7 @@ return packer.startup(function(use)
   use { "windwp/nvim-autopairs" } -- auto-generate pairs for chars
   use { "numToStr/Comment.nvim" } -- smart and powerful comments
   use { "norcalli/nvim-colorizer.lua" } -- colorizer 
+  use { "lukas-reineke/indent-blankline.nvim" } -- verticle indentlines
   use { "folke/todo-comments.nvim",
     config = function()
       require("todo-comments").setup({})

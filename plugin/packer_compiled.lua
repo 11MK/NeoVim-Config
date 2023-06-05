@@ -141,6 +141,11 @@ _G.packer_plugins = {
     path = "/home/max/.local/share/nvim/site/pack/packer/start/heirline.nvim",
     url = "https://github.com/rebelot/heirline.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/max/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
