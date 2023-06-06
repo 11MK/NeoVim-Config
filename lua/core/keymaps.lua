@@ -75,3 +75,4 @@ keymap("n", "<tab>",  "<cmd> :BufferLineCycleNext<CR>", opts("next buffer"))
 keymap("n", "<S-tab>",  "<cmd> :BufferLineCyclePrev<CR>", opts("previous buffer"))
 keymap("n", "<leader>x",  "<cmd> :bdelete <CR> ", opts("close current buffer"))
 
+
