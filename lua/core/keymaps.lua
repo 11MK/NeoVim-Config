@@ -42,12 +42,12 @@ keymap("i", "<C-j>", "<Down>", opts("move down"))
 keymap("i", "<C-k>", "<Up>", opts("move up"))
 
 -------------- VISUAL ---------------
-keymap("v", "<", "<gv", opts("indent backward and stay in visual mode")) 
+keymap("v", "<", "<gv", opts("indent backward and stay in visual mode"))
 keymap("v", ">", ">gv", opts("indent forward and stay in visual mode"))
 
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts("move text up"))  
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts("move text down"))  
 
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts("move text up"))
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts("move text down"))
 
 -- ───────────────────────────────────
 --             PLUGINS
