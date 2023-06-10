@@ -31,6 +31,8 @@ keymap("n", "<C-j>", "<C-w>j", opts("window up"))
 keymap("n", "<C-k>", "<C-w>k", opts("window down"))
 
 keymap("n", "<leader>w", "<cmd> w <CR>", opts("save file"))
+-- keymap("n", "<leader>x", "<cmd> w <CR> <cmd> bp<bar>sp<bar>bn<bar>bd <CR>", opts("delete buffer"))
+keymap("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", opts("delete buffer"))
 
 -------------- INSERT ---------------
 keymap("i", "jk", "<ESC>", opts("better escape"))
@@ -48,7 +50,6 @@ keymap("v", ">", ">gv", opts("indent forward and stay in visual mode"))
 
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts("move text up"))
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts("move text down"))
-
 -- ───────────────────────────────────
 --             PLUGINS
 -- ───────────────────────────────────
@@ -76,3 +77,25 @@ keymap("n", "<S-tab>",  "<cmd> :BufferLineCyclePrev<CR>", opts("previous buffer"
 keymap("n", "<leader>x",  "<cmd> :bdelete <CR> ", opts("close current buffer"))
 
 
+------------ DAP ---------------
+keymap('n', "<leader>dR", "<cmd> lua require('dap').run_to_cursor() <CR> ", opts("dap run to cursor"))
+keymap('n', "<leader>dE", "<cmd> lua require('dapui').eval(vim.fn.input '[expression] > ') <CR> ", opts("dap evaluate input"))
+keymap('n', "<leader>dC", "<cmd> lua require('dap').set_breakpoint(vim.fn.input '[condition] > ') <CR> ", opts("dap conditional breakpoint"))
+keymap('n', "<leader>dU", "<cmd> lua require('dapui').toggle() <CR> ", opts("dap toggle ui"))
+keymap('n', "<leader>db", "<cmd> lua require('dap').step_back() <CR> ", opts("dap step back"))
+keymap('n', "<leader>dc", "<cmd> lua require('dap').continue() <CR> ", opts("dap continue"))
+keymap('n', "<leader>dd", "<cmd> lua require('dap').disconnect() <CR> ", opts("dap disconnect"))
+keymap('n', "<leader>de", "<cmd> lua require('dapui').eval() <CR> ", opts("dap evaluate"))
+keymap('v', "<leader>de", "<cmd> lua require('dapui').eval() <CR> ", opts("dap evaluate"))
+keymap('n', "<leader>dg", "<cmd> lua require('dap').session() <CR> ", opts("dap get session"))
+keymap('n', "<leader>dh", "<cmd> lua require('dap.ui.widgets').hover() <CR> ", opts("dap hover variables"))
+keymap('n', "<leader>ds", "<cmd> lua require('dap.ui.widgets').scopes() <CR> ", opts("dap scopes"))
+keymap('n', "<leader>di", "<cmd> lua require('dap').step_into() <CR> ", opts("dap step into"))
+keymap('n', "<leader>do", "<cmd> lua require('dap').step_over() <CR> ", opts("dap step over"))
+keymap('n', "<leader>du", "<cmd> lua require('dap').step_out() <CR> ", opts("dap step out"))
+keymap('n', "<leader>dp", "<cmd> lua require('dap').pause.toggle() <CR> ", opts("dap pause"))
+keymap('n', "<leader>dq", "<cmd> lua require('dap').close() <CR> ", opts("dap quit"))
+keymap('n', "<leader>dr", "<cmd> lua require('dap').repl.toggle() <CR> ", opts("dap toggle repl"))
+keymap('n', "<leader>ds", "<cmd> lua require('dap').continue() <CR> ", opts("dap start"))
+keymap('n', "<leader>dt", "<cmd> lua require('dap').toggle_breakpoint() <CR> ", opts("dap toggle breakpoint"))
+keymap('n', "<leader>dx", "<cmd> lua require('dap').terminate() <CR> ", opts("dap terminate"))
