@@ -10,9 +10,8 @@ end
 
 dapui.setup {
   icons = { expanded = "▾", collapsed = "▸" },
-  -- Expand lines larger than the window
   -- Requires >= 0.7
-  -- expand_lines = vim.fn.has "nvim-0.7",
+  expand_lines = vim.fn.has "nvim-0.7", -- Expand lines larger than the window
   -- Layouts define sections of the screen to place windows.
   -- The position can be "left", "right", "top" or "bottom".
   -- The size specifies the height/width depending on position. It can be an Int
@@ -55,23 +54,6 @@ dapui.setup {
   },
 }
 
----------- LUA -----------
-dap.configurations.lua = {
-  {
-    type = 'nlua',
-    request = 'attach',
-    name = "Attach to running Neovim instance",
-  }
-}
-dap.adapters.nlua = function(callback, config)
-  callback({ type = 'server', host = config.host or "127.0.0.1", port = config.port or 8086 })
-end
-
---------- PYTHON -----------
-require("dap-python").setup("python", {})
-
----------- LUA -----------
-
 vim.fn.sign_define("DapBreakpoint", { text = "⏺", texthl = "ErrorMsg", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -83,5 +65,3 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close {}
 end
-
-print("OK")

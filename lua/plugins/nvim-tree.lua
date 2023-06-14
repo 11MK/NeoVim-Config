@@ -93,6 +93,10 @@ nvim_tree.setup({
 		remove_file = {
 			close_window = true,
 		},
+    		open_file = {
+      			resize_window = false
+		},
+
 	},
 	modified = {
 		enable = false,
@@ -142,5 +146,6 @@ nvim_tree.setup({
 		width = { 30 },
 		side = "left",
 		cursorline = false,
+    adaptive_size = true
 	},
 })
