@@ -12,7 +12,7 @@ end
 
 dap.adapters.debugpy = {
 	type = "executable",
-	command = '/home/max/.local/share/nvim/mason/packages/debugpy/debugpy', -- adjust as needed
+	command = '/home/max/.local/share/nvim/mason/packages/debugpy/debugpy-adapter', -- adjust as needed
 	name = "debugpy",
 }
 

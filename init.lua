@@ -4,11 +4,12 @@
 -- LSP -- 
 require("plugins.lsp")
 
+-- DEBUGGING --
+require("plugins.debugging")
+
 -- PLUGINS -- 
 require("plugins")
 
--- DEBUGGING --
-require("plugins.debugging")
 
 -- CORE --
 require("core")
