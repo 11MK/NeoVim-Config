@@ -13,7 +13,7 @@ illuminate.setup({
 			"treesitter",
 		},
 		-- delay: delay in milliseconds
-		delay = 120,
+		delay = 110,
 		-- filetype_overrides: filetype specific overrides.
 		-- The keys are strings to represent the filetype while the values are tables that
 		-- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
@@ -52,3 +52,7 @@ illuminate.setup({
 		under_cursor = true,
 	},
 })
+
+vim.api.nvim_set_hl(0, "IlluminatedWordText", "DiffAdd")
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", "DiffAdd")
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", "DiffAdd")

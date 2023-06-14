@@ -61,7 +61,7 @@ return packer.startup(function(use)
   use({ "williamboman/mason.nvim" })                                                          -- simple to use language server installer
   use({ "williamboman/mason-lspconfig.nvim" })                                                --
   use({ "jose-elias-alvarez/null-ls.nvim" })                                                  -- for formatters and linters
-  use({ "RRethy/vim-illuminate" })                                                            -- same word highlighting
+  -- use({ "RRethy/vim-illuminate" })                                                            -- same word highlighting
   use({ "simrat39/rust-tools.nvim" })
   -- STATUSLINE, TABS, UI
   use({ "rebelot/heirline.nvim" })
@@ -81,12 +81,12 @@ return packer.startup(function(use)
   use({ "jbyuki/one-small-step-for-vimkind" })
   use({
     "mfussenegger/nvim-dap",
-    opt = true,
-    event = "BufReadPre",
+    opt = false,
+    -- event = "BufReadPre",
     wants = { "nvim-dap-virtual-text", "nvim-dap-ui", "nvim-dap-python", },
-    requires = { "rcarriga/nvim-dap-ui", "theHamsta/nvim-dap-virtual-text", "nvim-telescope/telescope-dap.nvim" },
+    requires = { "theHamsta/nvim-dap-virtual-text", "nvim-telescope/telescope-dap.nvim" },
   })
-  use({ "mfussenegger/nvim-dap-python" })
+  -- use({ "mfussenegger/nvim-dap-python" })
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
   -- HANDY PLUGINS
   use({ "windwp/nvim-autopairs" })              -- auto-generate pairs for chars

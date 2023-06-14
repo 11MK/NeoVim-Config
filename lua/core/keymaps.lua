@@ -76,6 +76,7 @@ keymap(
 	"<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 	opts("toggle comment")
 )
+----------- NVIM-SURROUND -----------
 
 ------------- NVIM-TREE ---------------
 keymap("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", opts("nvim-tree toggle"))
@@ -107,7 +108,7 @@ keymap("n", "<leader>de", "<cmd> lua require('dapui').eval() <CR> ", opts("dap e
 keymap("v", "<leader>de", "<cmd> lua require('dapui').eval() <CR> ", opts("dap evaluate"))
 keymap("n", "<leader>dg", "<cmd> lua require('dap').session() <CR> ", opts("dap get session"))
 keymap("n", "<leader>dh", "<cmd> lua require('dap.ui.widgets').hover() <CR> ", opts("dap hover variables"))
-keymap("n", "<leader>ds", "<cmd> lua require('dap.ui.widgets').scopes() <CR> ", opts("dap scopes"))
+keymap("n", "<leader>dS", "<cmd> lua require('dap.ui.widgets').scopes() <CR> ", opts("dap scopes"))
 keymap("n", "<leader>di", "<cmd> lua require('dap').step_into() <CR> ", opts("dap step into"))
 keymap("n", "<leader>do", "<cmd> lua require('dap').step_over() <CR> ", opts("dap step over"))
 keymap("n", "<leader>du", "<cmd> lua require('dap').step_out() <CR> ", opts("dap step out"))

@@ -341,22 +341,40 @@ local Diagnostics = {
     hl = { fg = "diag_hint" },
   },
 }
+
+-- local DAPMessages = {
+--     condition = function()
+--         local status_ok, session = pcall(require, "nvim-tree")
+--         if not status_ok then
+--           return
+--         end
+--         return session ~= nil
+--     end,
+--     provider = function()
+--         return "⚙ " .. require("dap").status()
+--     end,
+--     hl = "Number"
+--     -- see Click-it! section for clickable actions
+-- }
+
 local LSPActive = {
   condition = conditions.lsp_attached,
   update = { 'LspAttach', 'LspDetach' },
 
   -- You can keep it simple,
-  provider = "⚙ LSP",
+  -- provider = "⚙ LSP",
 
   -- Or complicate things a bit and get the servers names
-  -- provider  = function()
-  --     local names = {}
-  --     for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-  --         table.insert(names, server.name)
-  --     end
-  --     return " " .. table.concat(names, " ")
-  --     -- 
-  -- end,
+  provider  = function()
+      for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+        if server.name ~= "null-ls" then
+          return "󰖝 " .. string.format("%s", server.name)
+        end
+      end
+      return ""
+      -- local server = vim.lsp.get_active_clients({ bufnr = 0 })
+      -- return "󰖝 " .. string.format("%s", server[1].name)
+  end,
   hl = { fg = "yellow", bold = true },
 }
 
