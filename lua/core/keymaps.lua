@@ -35,6 +35,12 @@ keymap("n", "<leader>w", "<cmd> w <CR>", opts("save file"))
 keymap("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", opts("delete buffer"))
 -- keymap("n", "<leader>ll", "<cmd> :luafile % <CR>", opts("delete buffer"))
 
+
+
+keymap("n", "<A-C-k>", "<cmd>  <CR>", opts("up 3 and center")) -- "Universal" split. Opposide of <K> "join"
+keymap("n", "<A-k>", "3k zz", opts("up 3 and center"))
+keymap("n", "<A-j>", "3j zz", opts("down 3 and center"))
+
 -------------- INSERT ---------------
 keymap("i", "jk", "<ESC>", opts("better escape"))
 keymap("i", "kj", "<ESC>", opts("better escape"))
