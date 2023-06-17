@@ -1,5 +1,7 @@
 -- |'|_|_|[,||\|_\"
 
+-- DASHBOARD --
+require("plugins.alpha")
 
 -- LSP -- 
 require("plugins.lsp")
@@ -9,7 +11,6 @@ require("plugins.debugging")
 
 -- PLUGINS -- 
 require("plugins")
-
 
 -- CORE --
 require("core")

@@ -5,9 +5,10 @@ vim.o.termguicolors = true
 require("onedark").setup({
 	style = "darker",
 })
+ -- require("onenord").setup()
 
-require("onedark").load()
-print("COLORCHEME LOADED")
+ require("onedark").load()
+-- print("COLORCHEME LOADED")
 
 -- require("tokyonight").setup({
 -- 	-- your configuration comes here
@@ -44,5 +45,5 @@ print("COLORCHEME LOADED")
 -- 	---@param colors ColorScheme
 -- 	on_highlights = function(highlights, colors) end,
 -- })
-
+--
 -- require("tokyonight").load()

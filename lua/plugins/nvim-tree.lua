@@ -16,6 +16,7 @@ local function opts(desc)
 	return { desc = "nvim-tree: " .. desc, noremap = true, silent = true, nowait = true }
 end
 
+
 local function on_attach(bufnr)
 	-- Default mappings. Feel free to modify or remove as you wish.
 	--
@@ -96,13 +97,18 @@ nvim_tree.setup({
     		open_file = {
       			resize_window = false
 		},
-
 	},
+  filters = {
+    exclude = {
+      "dashboard"
+    },
+  },
 	modified = {
 		enable = false,
 		show_on_dirs = true,
 		show_on_open_dirs = true,
 	},
+
 	renderer = {
 		root_folder_modifier = ":t",
 		root_folder_label = false,
