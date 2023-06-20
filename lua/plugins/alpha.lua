@@ -43,29 +43,22 @@ local function count_plugins()
 			count = count + 1
 		end
 	end
-	-- local plugins = packer.plugins
-	-- local count = 0
-	-- for name in pairs(plugins) do
-	-- 	if _G.packer_plugins[name] then
-	-- 		count = count + 1
-	-- 	end
-	-- end
 	return count
 end
 local function footer()
 	-- Number of plugins
 	local datetime = os.date("%d-%m-%Y %H:%M:%S")
 	local plugins_text = "  "
-  -- .. count_plugins()
-	.. " plugins"
-	.. "    "
-	.. vim.version().major
-	.. "."
-	.. vim.version().minor
-	.. "."
-	.. vim.version().patch
-	.. "    "
-	.. datetime
+		.. count_plugins()
+		.. " plugins"
+		.. "    "
+		.. vim.version().major
+		.. "."
+		.. vim.version().minor
+		.. "."
+		.. vim.version().patch
+		.. "    "
+		.. datetime
 	return plugins_text
 end
 -- local function footer()

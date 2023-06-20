@@ -1,3 +1,5 @@
+-- DASHBOARD --
+require("plugins.alpha")
 require("plugins.packer")
 require("plugins.cmp")
 require("plugins.nvim-tree")
@@ -7,4 +9,4 @@ require("plugins.comments")
 require("plugins.indentline")
 require("plugins.bufferline")
 require("plugins.heirline")
--- require("plugins.illuminate")
+require("plugins.illuminate")

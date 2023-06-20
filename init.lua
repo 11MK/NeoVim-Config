@@ -1,8 +1,5 @@
 -- |'|_|_|[,||\|_\"
 
--- DASHBOARD --
-require("plugins.alpha")
-
 -- LSP -- 
 require("plugins.lsp")
 
