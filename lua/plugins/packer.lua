@@ -45,7 +45,14 @@ return packer.startup(function(use)
 	use({ "nvim-tree/nvim-tree.lua" }) -- nvim file explorer
 	use({ "nvim-treesitter/nvim-treesitter" }) -- syntax highlighting
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.1" }) -- folder searcher
-	use({ "github/copilot.vim" })
+	use({
+		"zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+		event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
+	})
 	-- COMPLETIONS --
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
@@ -61,7 +68,7 @@ return packer.startup(function(use)
 	use({ "williamboman/mason.nvim" }) -- simple to use language server installer
 	use({ "williamboman/mason-lspconfig.nvim" }) --
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	use({ "RRethy/vim-illuminate" })                                                            -- same word highlighting
+	use({ "RRethy/vim-illuminate" }) -- same word highlighting
 	use({ "simrat39/rust-tools.nvim" })
 	-- STATUSLINE, TABS, UI
 	use({ "rebelot/heirline.nvim" })

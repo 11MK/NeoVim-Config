@@ -1,7 +1,7 @@
 -- DASHBOARD --
-require("plugins.alpha")
-require("plugins.copilot")
 require("plugins.packer")
+require("plugins.copilot")
+require("plugins.alpha")
 require("plugins.cmp")
 require("plugins.nvim-tree")
 require("plugins.telescope")

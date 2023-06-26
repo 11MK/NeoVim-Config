@@ -82,7 +82,7 @@ keymap(
 	"<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 	opts("toggle comment")
 )
------------ NVIM-SURROUND -----------
+-------------- COPILOT --------------
 
 ------------- NVIM-TREE ---------------
 keymap("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", opts("nvim-tree toggle"))
