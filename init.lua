@@ -11,4 +11,3 @@ require("plugins.debugging")
 
 -- PLUGINS -- 
 require("plugins")
-
