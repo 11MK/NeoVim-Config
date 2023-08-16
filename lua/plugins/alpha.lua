@@ -21,7 +21,7 @@ dashboard.section.header.val = art.nerv
 dashboard.section.buttons.val = {
 	button("f", "" .. " Find file", ":Telescope find_files <CR>"),
 	button("e", "" .. " New file", ":ene <BAR> startinsert <CR>"),
-	button("p", "" .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
+	-- button("p", "" .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
 	button("r", "" .. " Recent files", ":Telescope oldfiles <CR>"),
 	button("t", "" .. " Find text", ":Telescope live_grep <CR>"),
 	button("h", "󱩾" .. " Help files", ":Telescope help_tags <CR>"),

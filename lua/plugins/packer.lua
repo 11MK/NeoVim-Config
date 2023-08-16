@@ -45,13 +45,14 @@ return packer.startup(function(use)
 	use({ "nvim-tree/nvim-tree.lua" }) -- nvim file explorer
 	use({ "nvim-treesitter/nvim-treesitter" }) -- syntax highlighting
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.1" }) -- folder searcher
+	use({ "folke/flash.nvim" }) -- quick code navigation
 	use({
 		"zbirenbaum/copilot.lua",
-    cmd = "Copilot",
+		cmd = "Copilot",
 		event = "InsertEnter",
-    config = function()
-      require("copilot").setup({})
-    end,
+		config = function()
+			require("copilot").setup({})
+		end,
 	})
 	-- COMPLETIONS --
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -130,6 +131,7 @@ return packer.startup(function(use)
 	use({
 		"folke/tokyonight.nvim",
 	})
+	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

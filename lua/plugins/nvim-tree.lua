@@ -1,26 +1,27 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
+local ok, api = pcall(require, "nvim-tree")
+if not ok then
 	return
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
 
-local api = require("nvim-tree.api")
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
 
-local function opts(desc)
-	return { desc = "nvim-tree: " .. desc, noremap = true, silent = true, nowait = true }
-end
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
 
-
-local function on_attach(bufnr)
-	-- Default mappings. Feel free to modify or remove as you wish.
-	--
-	-- BEGIN_DEFAULT_ON_ATTACH
+  -- custom mappings
 	vim.keymap.set("n", "<C-]>", api.tree.change_root_to_node, opts("CD"))
 	vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
 	vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts("Info"))
@@ -73,6 +74,22 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
 	vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
 	vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
+  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+end
+
+-- pass to setup along with your other options
+require("nvim-tree").setup {
+  ---
+  on_attach = my_on_attach,
+  ---
+}
+
+
+local function on_attach(bufnr)
+	-- Default mappings. Feel free to modify or remove as you wish.
+	--
+	-- BEGIN_DEFAULT_ON_ATTACH
 	-- END_DEFAULT_ON_ATTACH
 
 	-- Mappings migrated from view.mappings.list

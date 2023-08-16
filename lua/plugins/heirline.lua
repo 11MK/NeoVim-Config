@@ -32,7 +32,7 @@ local function setup_colors()
 	}
 end
 
--- require("heirline").load_colors(setup_colors)
+require("heirline").load_colors(setup_colors)
 -- or pass it to config.opts.colors
 
 vim.api.nvim_create_augroup("Heirline", { clear = true })
