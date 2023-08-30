@@ -71,6 +71,7 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" }) -- same word highlighting
 	use({ "simrat39/rust-tools.nvim" })
+	use({ "mfussenegger/nvim-jdtls" }) -- Java shit
 	-- STATUSLINE, TABS, UI
 	use({ "rebelot/heirline.nvim" })
 	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" }) -- bufer tabs
