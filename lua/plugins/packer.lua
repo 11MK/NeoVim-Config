@@ -54,6 +54,7 @@ return packer.startup(function(use)
 			require("copilot").setup({})
 		end,
 	})
+
 	-- COMPLETIONS --
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
@@ -61,9 +62,11 @@ return packer.startup(function(use)
 	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp" }) -- lsp completion
 	use({ "hrsh7th/cmp-nvim-lua" }) -- lua completion
+
 	-- SNIPPETS --
 	use({ "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" }) -- a bunch of snippets to use
+
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
 	use({ "williamboman/mason.nvim" }) -- simple to use language server installer
@@ -72,6 +75,7 @@ return packer.startup(function(use)
 	use({ "RRethy/vim-illuminate" }) -- same word highlighting
 	use({ "simrat39/rust-tools.nvim" })
 	use({ "mfussenegger/nvim-jdtls" }) -- Java shit
+
 	-- STATUSLINE, TABS, UI
 	use({ "rebelot/heirline.nvim" })
 	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" }) -- bufer tabs
@@ -86,6 +90,7 @@ return packer.startup(function(use)
 			require("gitsigns").setup()
 		end,
 	})
+
 	-- DEBUGGING
 	use({
 		"theHamsta/nvim-dap-virtual-text",
@@ -99,8 +104,8 @@ return packer.startup(function(use)
 		wants = { "nvim-dap-virtual-text", "nvim-dap-ui", "nvim-dap-python" },
 		requires = { "theHamsta/nvim-dap-virtual-text", "nvim-telescope/telescope-dap.nvim" },
 	})
-	-- use({ "mfussenegger/nvim-dap-python" })
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+
 	-- HANDY PLUGINS
 	use({ "windwp/nvim-autopairs" }) -- auto-generate pairs for chars
 	use({ "numToStr/Comment.nvim" }) -- smart and powerful comments
@@ -119,6 +124,7 @@ return packer.startup(function(use)
 			require("nvim-surround").setup({})
 		end,
 	})
+
 	-- COLORSCHEMES
 	use({ "navarasu/onedark.nvim", as = "onedark" })
 	use("rmehri01/onenord.nvim")

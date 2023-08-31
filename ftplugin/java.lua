@@ -52,10 +52,6 @@ local config = {
   on_attach = require("plugins.lsp.handlers").on_attach,
   capabilities = require("plugins.lsp.handlers").capabilities,
 
-  -- 💀
-  -- This is the default if not provided, you can remove it. Or adjust as needed.
-  -- One dedicated LSP server & client will be started per unique root_dir
-  -- root_dir = require("jdtls.setup").find_root(root_markers) ,
 }
 
 local keymap = vim.keymap.set
