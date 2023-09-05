@@ -1,9 +1,9 @@
 vim.o.termguicolors = true
---[[ COLORSCHEME OneDark ]]
--- require("onedark").setup({
--- 	style = "darker",
--- })
--- require("onedark").load()
+-- [[ COLORSCHEME OneDark ]]
+require("onedark").setup({
+	style = "darker",
+})
+require("onedark").load()
 
 --[[ COLORSCHEME OneNord ]]
  -- require("onenord").setup()
@@ -93,4 +93,4 @@ vim.o.termguicolors = true
 -- })
 --
 -- -- setup must be called before loading
-vim.cmd.colorscheme "catppuccin-macchiato"
+-- vim.cmd.colorscheme "catppuccin-macchiato"

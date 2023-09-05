@@ -362,6 +362,35 @@ local Diagnostics = {
 --     -- see Click-it! section for clickable actions
 -- }
 --
+--
+local CopilotActive = {
+	condition = conditions.lsp_attached,
+	init = function(self)
+    local active =  function ()
+			for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+				if server.name == "copilot" then
+					return true
+				end
+			end
+			return false
+    end
+		self.copilot = active()
+  end,
+	provider = function(self)
+		if self.copilot == true then
+			return ""
+		else
+			return ""
+		end
+	end,
+	hl = function(self)
+		if self.copilot == true then
+			return { fg = "blue", bold = false }
+		else
+			return { fg = "gray", bold = false }
+		end
+	end,
+}
 
 local LSPActive = {
 	condition = conditions.lsp_attached,
@@ -409,18 +438,29 @@ local Ruler = {
 }
 
 local SpecialStatusline = {
-    condition = function()
-        return conditions.buffer_matches({
-            buftype = { "prompt", "help", "quickfix" },
-            filetype = { "^git.*", "fugitive", "dashboard", "alpha" },
-        })
-    end,
+	condition = function()
+		return conditions.buffer_matches({
+			buftype = { "prompt", "help", "quickfix" },
+			filetype = { "^git.*", "fugitive", "dashboard", "alpha" },
+		})
+	end,
 }
 
 -- ViMode = utils.surround({ "", "" }, "bright_bg", { ViMode })
 local DefaultStatusline = {
-	ViMode, FileNameBlock, RightEdge, Git, Space, Align,
-	Diagnostics, Space, LSPActive, Space, Ruler,
+	ViMode,
+	FileNameBlock,
+	RightEdge,
+	Git,
+	Space,
+	Align,
+	Diagnostics,
+	Space,
+	LSPActive,
+	Space,
+	CopilotActive,
+	Space,
+	Ruler,
 }
 
 -- local DefaultStatusline = {
@@ -459,7 +499,8 @@ local StatusLines = {
 	-- think of it as a switch case with breaks to stop fallthrough.
 	fallthrough = false,
 
-	SpecialStatusline, DefaultStatusline
+	SpecialStatusline,
+	DefaultStatusline,
 }
 
 require("heirline").setup({
