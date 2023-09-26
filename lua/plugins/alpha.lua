@@ -32,24 +32,11 @@ dashboard.section.buttons.val = {
 	button("q", "" .. " Quit", ":qa<CR>"),
 }
 
-local function count_plugins()
-	local status, packer = pcall(require, "packer")
-	if not status or _G.packer_plugins == nil then
-		return " "
-	end
-	local count = 0
-	for name, _ in pairs(_G.packer_plugins) do
-		if _G.packer_plugins[name] then
-			count = count + 1
-		end
-	end
-	return count
-end
 local function footer()
 	-- Number of plugins
 	local datetime = os.date("%d-%m-%Y %H:%M:%S")
 	local plugins_text = "  "
-		.. count_plugins()
+		.. #vim.tbl_keys(require("lazy").plugins())
 		.. " plugins"
 		.. "    "
 		.. vim.version().major
