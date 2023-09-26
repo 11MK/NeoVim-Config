@@ -20,7 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   -- TOOL
-  "wbthomason/packer.nvim",  -- Have packer manage itself
   "nvim-lua/plenary.nvim", -- Useful lua functions needed by lots of plugins
   "nvim-tree/nvim-tree.lua", -- nvim file explorer
   "nvim-treesitter/nvim-treesitter", -- syntax highlighting

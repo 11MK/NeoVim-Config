@@ -1,5 +1,4 @@
 require("plugins.lazy")
--- require("plugins.packer")
 require("plugins.flash")
 require("plugins.copilot")
 require("plugins.alpha")
