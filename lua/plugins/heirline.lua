@@ -259,7 +259,7 @@ local Git = {
 	{
 		-- git branch name
 		provider = function(self)
-			return "  " .. self.status_dict.head
+			return "  " .. self.status_dict.head
 		end,
 	},
 	-- You could handle delimiters, icons and counts similar to Diagnostics
@@ -402,7 +402,7 @@ local LSPActive = {
 	-- Or complicate things a bit and get the servers names
 	provider = function()
 		for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-			if server.name ~= "null-ls" then
+			if server.name ~= "null-ls" and server.name ~= "" then
 				return "󰖝 " .. string.format("%s", server.name)
 			end
 		end
