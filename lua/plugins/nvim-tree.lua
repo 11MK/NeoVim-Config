@@ -12,16 +12,16 @@ if not ok then
 end
 
 local function my_on_attach(bufnr)
-  local api = require "nvim-tree.api"
+	local api = require("nvim-tree.api")
 
-  local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
 
-  -- default mappings
-  api.config.mappings.default_on_attach(bufnr)
+	-- default mappings
+	api.config.mappings.default_on_attach(bufnr)
 
-  -- custom mappings
+	-- custom mappings
 	vim.keymap.set("n", "<C-]>", api.tree.change_root_to_node, opts("CD"))
 	vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
 	vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts("Info"))
@@ -74,17 +74,16 @@ local function my_on_attach(bufnr)
 	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
 	vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
 	vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
-  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
-  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+	vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
+	vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
 end
 
 -- pass to setup along with your other options
-require("nvim-tree").setup {
-  ---
-  on_attach = my_on_attach,
-  ---
-}
-
+require("nvim-tree").setup({
+	---
+	on_attach = my_on_attach,
+	---
+})
 
 local function on_attach(bufnr)
 	-- Default mappings. Feel free to modify or remove as you wish.
@@ -111,15 +110,15 @@ nvim_tree.setup({
 		remove_file = {
 			close_window = true,
 		},
-    		open_file = {
-      			resize_window = false
+		open_file = {
+			resize_window = false,
 		},
 	},
-  filters = {
-    exclude = {
-      "dashboard"
-    },
-  },
+	filters = {
+		exclude = {
+			"dashboard",
+		},
+	},
 	modified = {
 		enable = false,
 		show_on_dirs = true,
@@ -166,9 +165,12 @@ nvim_tree.setup({
 		},
 	},
 	view = {
-		width = { 30 },
+		width = 30,
+		-- height = 30,
+		-- hide_root_folder = false,
 		side = "left",
-		cursorline = false,
-    adaptive_size = true
+		-- auto_resize = true,
+		number = false,
+		relativenumber = false,
 	},
 })
