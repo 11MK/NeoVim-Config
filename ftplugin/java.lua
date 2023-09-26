@@ -7,7 +7,7 @@ local home = vim.env.HOME
 local jdtls_path = vim.fn.stdpath "data" .. "/mason/packages/jdtls/"
 local equinox_version = "1.6.500.v20230717-2134"
 
-WORKSPACE_PATH = home .. "/School/DiscreteStructures/Program1"
+WORKSPACE_PATH = home .. "/School/DiscreteStructures/Lab3"
 if vim.fn.has "mac" == 1 then
   OS_NAME = "mac"
 elseif vim.fn.has "unix" == 1 then
