@@ -5,8 +5,8 @@ require("onedark").setup({
 })
 require("onedark").load()
 
---[[ COLORSCHEME OneNord ]]
- -- require("onenord").setup()
+-- [[ COLORSCHEME OneNord ]]
+-- require("onenord").setup()
 
 -- [[ COLORSCHEME TokyoNight ]]
 -- require("tokyonight").setup({
@@ -47,8 +47,8 @@ require("onedark").load()
 -- require("tokyonight").load()
 
 
--- [[ COLORSCHEME TokyoNight ]]
--- [[ require("catppuccin").setup({
+-- [[ COLORSCHEME Catppuccin ]]
+-- require("catppuccin").setup({
 -- flavour = "mocha", -- latte, frappe, macchiato, mocha
 --  background = { -- :h background
 --        light = "latte",
@@ -92,6 +92,5 @@ require("onedark").load()
 --    },
 -- })
 --
--- setup must be called before loading
+-- -- setup must be called before loading
 -- vim.cmd.colorscheme "catppuccin-macchiato"
--- ]]
