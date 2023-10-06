@@ -70,6 +70,21 @@ local plugins = {
     end,
   },
 
+  -- DATABASES
+  'kristijanhusak/vim-dadbod-ui',
+  'kristijanhusak/vim-dadbod-completion',
+  {
+    "tpope/vim-dadbod",
+    opt = true,
+    requires = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
+    config = function()
+      require("plugins.dadbod")
+    end,
+  },
+
   -- DEBUGGING
 
   "theHamsta/nvim-dap-virtual-text",
