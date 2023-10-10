@@ -94,7 +94,7 @@ indent_blankline.setup({
 		show_start = true,
 		show_end = false,
 		injected_languages = false,
-		highlight = { "Function", "Label" },
+		highlight = { "Visual" },
 		priority = 500,
 	},
 	whitespace = {
