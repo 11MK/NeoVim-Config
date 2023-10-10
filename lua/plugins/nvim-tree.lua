@@ -98,7 +98,7 @@ end
 
 nvim_tree.setup({
 	update_focused_file = {
-		enable = true,
+		-- enable = true,
 		update_cwd = true,
 	},
 	tab = {
@@ -108,7 +108,7 @@ nvim_tree.setup({
 	},
 	actions = {
 		remove_file = {
-			close_window = true,
+			-- close_window = true,
 		},
 		open_file = {
 			resize_window = false,
