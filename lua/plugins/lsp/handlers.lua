@@ -8,6 +8,13 @@ end
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+M.capabilities = vim.tbl_deep_extend('force', M.capabilities, {
+  offsetEncoding = { 'utf-16' },
+  general = {
+    positionEncodings = { 'utf-16' },
+  },
+})
+
 
 M.setup = function()
 	local signs = {
