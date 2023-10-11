@@ -43,6 +43,7 @@ vim.api.nvim_command([[
     autocmd ModeChanged * lua Leave_snippet()
 ]])
 
+
 --   פּ ﯟ  󰖝  ∰ some other good icons
 local kind_icons = {
 	Text = "",
@@ -133,25 +134,29 @@ cmp.setup({
 		}),
 	},
 	formatting = {
-		fields = { "abbr", "kind", "menu"},
+		fields = { "kind","abbr","menu"},
 		format = function(entry, vim_item)
+      -- vim.api.nvim_set_hl(0, "CmpItemKind", { link = "Visual", italic=true })
+      -- vim.api.nvim_set_hl(0, "CmpItemMenu", { link="VisualNC", italic=true })
+      -- vim.api.nvim_set_hl(0, "CmpItemKindMethod", { bg = "#992849" })
+      -- vim.api.nvim_set_hl(0, "CmpItemAbbr", { link = "Visual",italic=true })
+      -- vim.api.nvim_set_hl(0, "CmpItemMenu", { italic=true })
 			-- Kind icons
-			-- vim_item.menu = string.format("%s", vim_item.kind)
-			-- vim_item.menu = string.format("│ %s ", vim_item.kind) -- This concatonates the icons with the name of the item kind
-			-- vim_item.kind = string.format("[%s]", kind_icons[vim_item.kind])
-			vim_item.menu = ({
-				nvim_lsp = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				-- nvim_lsp = "[LSP]",
-				-- luasnip = "[SNP]",
-				-- buffer = "[BUF]",
-				-- path = "[PTH]",
-			})[entry.source.name]
-			vim_item.kind = string.format("%s %s ", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-			-- vim_item.kind = string.format("%s ", kind_icons[vim_item.kind]) -- This concatonates the icons with the name of the item kind
-			return vim_item
+			-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      -- vim_item.abbr = string.format("%s", vim_item.abbr)
+			vim_item.abbr = string.format("%s", vim_item.abbr) -- This concatonates the icons with the name of the item kind
+			vim_item.menu = string.format("{%s} ", vim_item.kind) -- This concatonates the icons with the name of the item kind
+      -- lua format string to be in italics.
+			-- vim_item.menu = ({
+			-- 	nvim_lsp = "[LSP]",
+			-- 	luasnip = "[SNP]",
+			-- 	buffer = "[BUF]",
+			-- 	path = "[PTH]",
+			-- })[entry.source.name]
+			-- vim_item.kind = string.format("%s %s ", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+			vim_item.kind = string.format(" %s ", kind_icons[vim_item.kind]) -- This concatonates the icons with the name of the item kind
+        -- vim_item.kind = kind_icons[vim_item.kind] or ""
+        return vim_item
 		end,
 	},
 	sources = {
@@ -170,19 +175,24 @@ cmp.setup({
   },
 	completion = {
 		completeopt = "menu,menuone",
+    winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+    side_padding = 0,
 	},
 	window = {
 		documentation = {
-			border = border("CmpDocBorder"),
-			winhighlight = "Normal:CmpDoc",
-			scrollbar = true,
+			-- border = border("StatusLine"),
+			border = nil,
+			winhighlight = "SpecialKey:CmpDoc",
+			scrollbar = false,
       max_height = 16,
 		},
 		completion = {
-			side_padding = 2,
-			border = border("CmpDocBorder"),
-			winhighlight = "Normal:CmpDoc",
-      scrollbar = true,
+			side_padding = 0,
+			-- border = border("CmpDocBorder"),
+			border = nil,
+      col_offset = -3,
+			winhighlight = "SpecialKey:CmpDoc",
+      scrollbar = false,
 		},
 	},
 	experimental = {
