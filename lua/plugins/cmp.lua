@@ -8,8 +8,6 @@ if not snip_status_ok then
 	return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
-
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -29,20 +27,19 @@ local function border(hl_name)
 end
 
 function Leave_snippet()
-    if
-        ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
-        and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
-        and not require('luasnip').session.jump_active
-    then
-        require('luasnip').unlink_current()
-    end
+	if
+		((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
+		and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+		and not require("luasnip").session.jump_active
+	then
+		require("luasnip").unlink_current()
+	end
 end
 
 -- stop snippets when you leave to normal mode
 vim.api.nvim_command([[
     autocmd ModeChanged * lua Leave_snippet()
 ]])
-
 
 --   פּ ﯟ  󰖝  ∰ some other good icons
 local kind_icons = {
@@ -134,29 +131,12 @@ cmp.setup({
 		}),
 	},
 	formatting = {
-		fields = { "kind","abbr","menu"},
+		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
-      -- vim.api.nvim_set_hl(0, "CmpItemKind", { link = "Visual", italic=true })
-      -- vim.api.nvim_set_hl(0, "CmpItemMenu", { link="VisualNC", italic=true })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindMethod", { bg = "#992849" })
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbr", { link = "Visual",italic=true })
-      -- vim.api.nvim_set_hl(0, "CmpItemMenu", { italic=true })
-			-- Kind icons
-			-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.abbr = string.format("%s", vim_item.abbr)
 			vim_item.abbr = string.format("%s", vim_item.abbr) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = string.format("{%s} ", vim_item.kind) -- This concatonates the icons with the name of the item kind
-      -- lua format string to be in italics.
-			-- vim_item.menu = ({
-			-- 	nvim_lsp = "[LSP]",
-			-- 	luasnip = "[SNP]",
-			-- 	buffer = "[BUF]",
-			-- 	path = "[PTH]",
-			-- })[entry.source.name]
-			-- vim_item.kind = string.format("%s %s ", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			vim_item.kind = string.format(" %s ", kind_icons[vim_item.kind]) -- This concatonates the icons with the name of the item kind
-        -- vim_item.kind = kind_icons[vim_item.kind] or ""
-        return vim_item
+			return vim_item
 		end,
 	},
 	sources = {
@@ -170,29 +150,26 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
-  performance = {
-    max_view_entries = 12
-  },
-	completion = {
-		completeopt = "menu,menuone",
-    winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-    side_padding = 0,
+	performance = {
+		max_view_entries = 12,
 	},
 	window = {
 		documentation = {
 			-- border = border("StatusLine"),
 			border = nil,
-			winhighlight = "SpecialKey:CmpDoc",
+      winhighlight = "Normal:Pmenu",
 			scrollbar = false,
-      max_height = 16,
+			max_height = 16,
+			side_padding = 0,
+      load
 		},
 		completion = {
 			side_padding = 0,
 			-- border = border("CmpDocBorder"),
 			border = nil,
-      col_offset = -3,
-			winhighlight = "SpecialKey:CmpDoc",
-      scrollbar = false,
+			col_offset = -3,
+      winhighlight = "Normal:Pmenu,CursorLine:CmpCursor,Search:PmenuSel",
+			scrollbar = false,
 		},
 	},
 	experimental = {
