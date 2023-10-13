@@ -11,3 +11,6 @@ require("plugins.debugging")
 
 -- CORE --
 require("core")
+
+-- UTILS --
+require("utils")
