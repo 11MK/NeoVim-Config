@@ -1,9 +1,42 @@
 vim.o.termguicolors = true
 -- [[ COLORSCHEME OneDark ]]
-require("onedark").setup({
-	style = "darker",
+-- require("onedark").setup({
+-- 	style = "darker",
+-- })
+-- require("onedark").load()
+
+-- [[ COLORSCHEME Yami ]]
+require("yami").setup({
+	highlights = {
+		diff_add = false,
+		diff_delete = false,
+		diff_change = false,
+		diff_text = false,
+		black = false,
+		bg0 = "#e4e4e4",
+		bg1 = false,
+		bg2 = false,
+		bg3 = false,
+		bg_d = false,
+		bg_blue = false,
+		bg_yellow = false,
+		fg = false,
+		purple = false,
+		green = false,
+		orange = false,
+		blue = false,
+		yellow = false,
+		cyan = false,
+		red = false,
+		grey = false,
+		light_grey = false,
+		dark_cyan = false,
+		dark_red = false,
+		dark_yellow = false,
+		dark_purple = false,
+	},
 })
-require("onedark").load()
+require("yami").load()
 
 -- [[ COLORSCHEME OneNord ]]
 -- require("onenord").setup()
@@ -45,7 +78,6 @@ require("onedark").load()
 -- 	on_highlights = function(highlights, colors) end,
 -- })
 -- require("tokyonight").load()
-
 
 -- [[ COLORSCHEME Catppuccin ]]
 -- require("catppuccin").setup({
