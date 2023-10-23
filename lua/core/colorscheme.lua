@@ -1,42 +1,80 @@
 vim.o.termguicolors = true
 -- [[ COLORSCHEME OneDark ]]
--- require("onedark").setup({
--- 	style = "darker",
--- })
--- require("onedark").load()
+require("onedark").setup({
+	style = "darker",
+})
+require("onedark").load()
 
 -- [[ COLORSCHEME Yami ]]
-require("yami").setup({
-	highlights = {
-		diff_add = false,
-		diff_delete = false,
-		diff_change = false,
-		diff_text = false,
-		black = false,
-		bg0 = "#e4e4e4",
-		bg1 = false,
-		bg2 = false,
-		bg3 = false,
-		bg_d = false,
-		bg_blue = false,
-		bg_yellow = false,
-		fg = false,
-		purple = false,
-		green = false,
-		orange = false,
-		blue = false,
-		yellow = false,
-		cyan = false,
-		red = false,
-		grey = false,
-		light_grey = false,
-		dark_cyan = false,
-		dark_red = false,
-		dark_yellow = false,
-		dark_purple = false,
-	},
-})
-require("yami").load()
+-- require("yami").setup({
+-- 	highlights = {
+-- 		-- black = "#24272D",
+-- 		-- -- bg0 = "#25282e",  -- Darker
+--   --   -- bg0 = "#122932",
+-- 		-- bg0 = "#2a2d34", -- Ligher
+-- 		-- bg1 = "#3F444C",
+-- 		-- bg2 = "#515760",
+-- 		-- bg3 = "#646A74",
+-- 		-- bg_d = "#25282e",
+-- 		-- bg_blue = "#61afef",
+-- 		-- fg = "#C6C6C0",
+-- 		-- purple = "#fbf2c4",
+-- 		-- green = "#95C561",
+-- 		-- orange = "#dae0b8",
+-- 		-- blue = "#C6DDF0",
+-- 		-- yellow = "#C5F4E0",
+-- 		-- cyan = "#e5c185",
+-- 		-- red = "#df9290",
+-- 		-- grey = "#535965",
+-- 		-- tan = "#c0c0ae",
+-- 		-- -- tan = "#c5ccc1",
+--   --   brown = "#AD957B",
+-- 		-- light_grey = "#7a818e",
+-- 		-- light_tan = "#c5ccc1",
+-- 		-- dark_cyan = "#266269",
+-- 		-- dark_red = "#8b3434",
+-- 		-- dark_yellow = "#835d1a",
+-- 		-- dark_purple = "#7e3992",
+-- 		-- diff_add = "#272e23",
+-- 		-- diff_delete = "#2d2223",
+-- 		-- diff_change = "#172a3a",
+-- 		-- diff_text = "#274964",
+--
+--
+-- 		black = "#24272D",
+-- 		-- bg0 = "#25282e",  -- Darker
+--     -- bg0 = "#122932",
+-- 		bg0 = "#2a2d34", -- Ligher
+-- 		bg1 = "#3F444C",
+-- 		bg2 = "#515760",
+-- 		bg3 = "#646A74",
+-- 		bg_d = "#25282e",
+-- 		bg_blue = "#61afef",
+-- 		fg = "#C6C6C0",
+-- 		purple = "#bc74de",
+-- 		green = "#95C561",
+-- 		orange = "#e9ae5a",
+-- 		blue = "#5dbce7",
+-- 		yellow = "#ebd36a",
+-- 		cyan = "#88dbca",
+-- 		red = "#f4877c",
+-- 		grey = "#535965",
+-- 		tan = "#c0c0ae",
+-- 		-- tan = "#c5ccc1",
+--     brown = "#636940",
+-- 		light_grey = "#7a818e",
+-- 		light_tan = "#c5ccc1",
+-- 		dark_cyan = "#266269",
+-- 		dark_red = "#8b3434",
+-- 		dark_yellow = "#835d1a",
+-- 		dark_purple = "#7e3992",
+-- 		diff_add = "#272e23",
+-- 		diff_delete = "#2d2223",
+-- 		diff_change = "#172a3a",
+-- 		diff_text = "#274964",
+-- 	},
+-- })
+-- require("yami").load()
 
 -- [[ COLORSCHEME OneNord ]]
 -- require("onenord").setup()
