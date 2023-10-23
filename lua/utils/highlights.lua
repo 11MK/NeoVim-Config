@@ -51,7 +51,7 @@ local function set_cmp_highlights()
   vim.api.nvim_set_hl(0,"CmpItemAbbrMatchFuzzy", { fg = foreground })
 
   -- Pmenu Highlights
-  background = vim.api.nvim_get_hl_by_name("StatusLineNC", { attributes = true }).background
+  background = vim.api.nvim_get_hl_by_name("Visual", { attributes = true }).background
   vim.api.nvim_set_hl(0,"Pmenu", { bg = background })
   background = vim.api.nvim_get_hl_by_name("Character", { attributes = true }).background
   vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
