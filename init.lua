@@ -1,5 +1,6 @@
 -- |'|_|_|[,||\|_\"
 
+
 -- PLUGINS -- 
 require("plugins")
 
@@ -9,8 +10,8 @@ require("plugins.lsp")
 -- DEBUGGING --
 require("plugins.debugging")
 
--- CORE --
-require("core")
-
 -- UTILS --
 require("utils")
+
+-- CORE --
+require("core")

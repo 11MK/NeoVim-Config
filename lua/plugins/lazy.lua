@@ -22,7 +22,11 @@ local plugins = {
 	-- TOOL
 	"nvim-lua/plenary.nvim", -- Useful lua functions needed by lots of plugins
 	"nvim-tree/nvim-tree.lua", -- nvim file explorer
-	"nvim-treesitter/nvim-treesitter", -- syntax highlighting
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		-- event = { "BufReadPost", "BufNewFile" },
+	}, -- syntax highlighting
 	"nvim-telescope/telescope.nvim", -- tag = "0.1.1", -- folder searcher
 	"folke/flash.nvim", -- quick code navigation
 	{

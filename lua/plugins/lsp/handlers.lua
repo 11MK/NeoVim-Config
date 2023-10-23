@@ -8,17 +8,15 @@ end
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
-M.capabilities = vim.tbl_deep_extend('force', M.capabilities, {
-  offsetEncoding = { 'utf-16' },
-  general = {
-    positionEncodings = { 'utf-16' },
-  },
+M.capabilities = vim.tbl_deep_extend("force", M.capabilities, {
+	offsetEncoding = { "utf-16" },
+	general = {
+		positionEncodings = { "utf-16" },
+	},
 })
-
 
 M.setup = function()
 	local signs = {
-
 		{ name = "DiagnosticSignError", text = "" },
 		{ name = "DiagnosticSignWarn", text = "" },
 		{ name = "DiagnosticSignHint", text = "" },
@@ -40,7 +38,7 @@ M.setup = function()
 		float = {
 			focusable = true,
 			style = "minimal",
-			border = "rounded",
+			border = "single",
 			source = "always",
 			header = "",
 			prefix = "",
@@ -50,11 +48,15 @@ M.setup = function()
 	vim.diagnostic.config(config)
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded",
+		border = "single",
+    width = 60,
+    height = 30,
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded",
+		border = "single",
+    width = 60,
+    height = 30,
 	})
 end
 

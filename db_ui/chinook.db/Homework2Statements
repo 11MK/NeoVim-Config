@@ -1,0 +1,30 @@
+-- TEST: 1 - Create a view tracksPlus to display the artist, song title, album, and genre for all tracks.
+ 
+
+-- DROP VIEW tracksPlus;
+-- CREATE VIEW tracksPlus AS SELECT TrackId, albums.Title as AlbumTitle, genres.Name as GenreName, artists.Name as ArtistName FROM tracks
+--   JOIN albums ON tracks.AlbumId = albums.AlbumId
+--   JOIN genres ON tracks.GenreId = genres.GenreId
+--   JOIN artists ON albums.ArtistId = artists.ArtistId;
+-- SELECT * FROM tracksPlus;
+
+-- TEST: 2 - Create a table grammy_infos to track grammy information for an artist. 
+-- The table should include a reference to the artist, 
+-- the album (if the grammy was for an album) and the song (if the grammy was
+-- for a song). There should be a string column indicating if the artist was
+-- nominated or won. Finally, there should be a reference to the grammy_category table
+
+-- DROP TABLE grammy_infos;
+-- CREATE TABLE grammy_categories ( GrammyCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, GrammyCategoryName TEXT NOT NULL);
+-- CREATE TABLE grammy_infos ( 
+--   GrammyCategoryId INTEGER PRIMARY KEY 
+--   AUTOINCREMENT, ArtistId INTEGER NOT NULL, 
+--   AlbumId INTEGER, 
+--   TrackId INTEGER, 
+--   Status TEXT NOT NULL, 
+--   FOREIGN KEY (ArtistId) REFERENCES artists(ArtistId), 
+--   FOREIGN KEY (AlbumId) REFERENCES albums(AlbumId), 
+--   FOREIGN KEY (TrackId) REFERENCES tracks(TrackId), 
+--   FOREIGN KEY (GrammyCategoryID) REFERENCES grammy_categories(GrammyCategoryId));
+-- Select * FROM grammy_infos;
+

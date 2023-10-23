@@ -9,7 +9,7 @@ local function setup_colors()
 	return {
 		bright_bg = utils.get_highlight("Folded").bg,
 		bright_fg = utils.get_highlight("Folded").fg,
-		red = utils.get_highlight("DiagnosticError").fg,
+		red = utils.get_highlight("ErrorMsg").fg,
 		background = utils.get_highlight("Visual").bg,
 		white = utils.get_highlight("@text").fg,
 		light_grey = utils.get_highlight("CursorLineNr").bg,

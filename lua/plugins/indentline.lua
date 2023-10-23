@@ -91,10 +91,10 @@ indent_blankline.setup({
 	},
 	scope = {
 		enabled = true,
-		show_start = true,
+		show_start = false,
 		show_end = false,
 		injected_languages = false,
-		highlight = { "Visual" },
+		highlight = { "VertSplit" },
 		priority = 500,
 	},
 	whitespace = {
