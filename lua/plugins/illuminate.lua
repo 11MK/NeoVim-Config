@@ -25,8 +25,9 @@ illuminate.setup({
 	options = {
 		-- providers: provider used to get references in the buffer, ordered by priority
 		providers = {
-			"lsp",
-			"treesitter",
+      "lsp",
+      "treesitter",
+      "regex",
 		},
 		-- delay: delay in milliseconds
 		delay = 110,
@@ -36,9 +37,29 @@ illuminate.setup({
 		filetype_overrides = {},
 		-- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
 		filetypes_denylist = {
+      "mason",
+      "harpoon",
+      "DressingInput",
+      "NeogitCommitMessage",
+      "qf",
+      "dirvish",
+      "minifiles",
+      "fugitive",
+      "lazy",
+      "NeogitStatus",
+      "Trouble",
+      "netrw",
+      "lir",
+      "DiffviewFiles",
+      "Outline",
+      "Jaq",
+      "spectre_panel",
+      "toggleterm",
+      "DressingSelect",
 			"dirvish",
 			"fugitive",
 			"alpha",
+			"dashboard",
 			"NvimTree",
 			"lazy",
 			"neogitstatus",
