@@ -1,4 +1,3 @@
-
 local function set_cmp_highlights()
 	local ns_ids = {
 		"CmpItemKindField",
@@ -45,16 +44,20 @@ local function set_cmp_highlights()
   -- Abbreviation Highlights
   foreground = vim.api.nvim_get_hl_by_name("StatusLineNC", { attributes = true }).foreground
   vim.api.nvim_set_hl(0,"CmpItemAbbrDeprecated", { fg = foreground, strikethrough = true })
+
   foreground = vim.api.nvim_get_hl_by_name("Character", { attributes = true }).foreground
   vim.api.nvim_set_hl(0,"CmpItemAbbrMatch", { fg = foreground })
+
   foreground = vim.api.nvim_get_hl_by_name("Character", { attributes = true }).foreground
   vim.api.nvim_set_hl(0,"CmpItemAbbrMatchFuzzy", { fg = foreground })
 
   -- Pmenu Highlights
-  background = vim.api.nvim_get_hl_by_name("Visual", { attributes = true }).background
+  background = vim.api.nvim_get_hl_by_name("StatusLineNC", { attributes = true }).background
   vim.api.nvim_set_hl(0,"Pmenu", { bg = background })
+
   background = vim.api.nvim_get_hl_by_name("Character", { attributes = true }).background
-  vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
+  vim.api.nvim_set_hl(0, "PmenuSel", { bg = background, fg = "NONE" })
+
   -- Custom Cursor Highlight for CMP Menu 
   background = vim.api.nvim_get_hl_by_name("DiffText", { attributes = true }).background
   vim.api.nvim_set_hl(0, "CmpCursor", { bg = background })
