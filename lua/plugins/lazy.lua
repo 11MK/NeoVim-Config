@@ -37,6 +37,48 @@ local plugins = {
 			require("copilot").setup({})
 		end,
 	},
+	--  MARKDOWN --
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		-- event = {
+		--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+		--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+		--   "BufReadPre path/to/my-vault/**.md",
+		--   "BufNewFile path/to/my-vault/**.md",
+		-- },
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+
+			-- see below for full list of optional dependencies 👇
+		},
+		opts = {
+			workspaces = {
+				{
+					name = "brain",
+					path = "~/vaults/brain",
+				},
+				{
+					name = "work",
+					path = "~/vaults/work",
+				},
+			},
+
+			-- see below for full list of options 👇
+		},
+	},
 
 	-- COMPLETION --
 	"hrsh7th/nvim-cmp", -- The completion plugin
@@ -51,8 +93,8 @@ local plugins = {
 	{ "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" }, -- a bunch of snippets to use
 
 	-- LSP
-	"neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/mason.nvim", -- simple to use language server installer
+  "neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/mason-lspconfig.nvim", --
 	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
 	"RRethy/vim-illuminate", -- same word highlighting
