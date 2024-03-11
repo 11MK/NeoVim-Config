@@ -58,3 +58,5 @@ for _, server in pairs(servers) do
 
   lspconfig[server].setup(opts)
 end
+-- GLSL Analyzer
+require'lspconfig'.glsl_analyzer.setup{}
