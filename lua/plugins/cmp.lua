@@ -157,7 +157,7 @@ cmp.setup({
 		documentation = {
 			-- border = border("StatusLine"),
 			border = nil,
-      winhighlight = "Normal:Pmenu",
+      winhighlight = "Normal:Pmenu,CursorLine:CmpCursor,Search:PmenuSel",
 			scrollbar = false,
 			max_height = 16,
 			side_padding = 0,
