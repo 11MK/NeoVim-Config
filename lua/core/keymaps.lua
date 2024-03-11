@@ -82,7 +82,12 @@ keymap(
 	"<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 	opts("toggle comment")
 )
--------------- COPILOT --------------
+-------------- COPILOT ----------------
+
+
+-------------= Rust-Tools -------------
+keymap("n", "<leader>rn", "<cmd> lua require('rust-tools').runnables.runnables() <CR>", opts("rust-tools runnables"))
+
 
 ------------- NVIM-TREE ---------------
 keymap("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", opts("nvim-tree toggle"))
