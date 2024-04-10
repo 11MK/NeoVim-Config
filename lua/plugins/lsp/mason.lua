@@ -3,7 +3,8 @@ local servers = {
   -- "cssls",
   -- "html",
   "tsserver",
-  "pyright",
+  -- "pyright",
+  "jedi_language_server",
   "sqlls",
   -- "bashls",
   -- "jsonls",
@@ -12,7 +13,6 @@ local servers = {
   "clangd",
   "cssls",
   "html",
-  "pyright",
   "rust_analyzer",
   "tailwindcss",
 }
