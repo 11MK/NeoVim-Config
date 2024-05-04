@@ -37,7 +37,7 @@ opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
 
-opt.conceallevel = 1
+opt.conceallevel = 2
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
@@ -47,3 +47,5 @@ opt.updatetime = 250
 opt.whichwrap:append "<>[]hl"
 
 -- api.nvim_open_win(0, false, {relative='win', width=30, height=10, bufpos={100,10},border={"╔", "═" ,"╗", "║", "╝", "═", "╚", "║"}})
+
+-- Markdown Inline Highlighting
